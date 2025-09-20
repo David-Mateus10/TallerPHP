@@ -14,31 +14,40 @@
         $operacion = $_POST["operacion"];
 
         if ($numero < 0) {
-            echo "Por favor, ingresa un número entero positivo.";
-            exit;
-        }
-
-        if ($operacion == "factorial") {
-            $resultado = 1;
-            for ($i = 1; $i <= $numero; $i++) {
-                $resultado *= $i;
-            }
-            echo "El factorial de $numero es: $resultado";
-        } elseif ($operacion == "fibonacci") {
-            $a = 0;
-            $b = 1;
-            echo "Sucesión de Fibonacci hasta $numero términos:<br>";
-            for ($i = 0; $i < $numero; $i++) {
-                echo "$a ";
-                $siguiente = $a + $b;
-                $a = $b;
-                $b = $siguiente;
-            }
+            echo "<p>⚠ Por favor, ingresa un número entero positivo.</p>";
         } else {
-            echo "Operación no válida.";
+            if ($operacion == "factorial") {
+                $resultado = 1;
+                $serie = [];
+
+                for ($i = $numero; $i >= 1; $i--) {
+                    $resultado *= $i;
+                    $serie[] = $i;
+                }
+
+                $cadena = implode(" × ", $serie);
+                echo "<p><strong>Serie del factorial de $numero:</strong><br>$cadena = <strong>$resultado</strong></p>";
+
+            } elseif ($operacion == "fibonacci") {
+                $a = 0;
+                $b = 1;
+                $serie = [];
+
+                for ($i = 0; $i < $numero; $i++) {
+                    $serie[] = $a;
+                    $siguiente = $a + $b;
+                    $a = $b;
+                    $b = $siguiente;
+                }
+
+                $cadena = implode(", ", $serie);
+                echo "<p><strong>Sucesión de Fibonacci de $numero términos:</strong><br>$cadena</p>";
+            } else {
+                echo "<p>⚠ Operación no válida.</p>";
+            }
         }
     } else {
-        echo "No se enviaron datos.";
+        echo "<p>No se enviaron datos.</p>";
     }
     ?>
   </div>
