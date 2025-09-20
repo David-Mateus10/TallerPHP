@@ -2,13 +2,21 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Taller PHP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller 1</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <h1>Taller de Programación Avanzada en PHP</h1>
-    <div class="menu">
-        <a href="ejercicio1.php">Ejercicio 1 - Pares e Impares</a>
-    </div>
+    <h1>Ejercicio 1 - Pares e Impares</h1>
+
+    <form method="post" action="ejercicio1.php">
+        <label>Ingresa números separados por coma:</label><br><br>
+        <input type="text" name="numeros" placeholder="Ej: 20, 10, 2, 11, 3" required>
+        <br><br>
+        <input type="submit" value="Procesar">
+    </form>
+
+    <br>
+    <a href="../">⬅ Volver a la lista de talleres</a>
 </body>
 </html>
