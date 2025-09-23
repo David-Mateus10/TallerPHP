@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Texto</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Buscador de Texto</h1>
+
+        <form method="post" action="operaciones.php" class="formulario">
+            <div class="campo">
+                <label for="texto">Ingrese un texto:</label><br>
+                <textarea name="texto" id="texto" rows="6" placeholder="Escriba aquí su párrafo..." required></textarea>
+            </div>
+
+            <div class="campo">
+                <label for="busqueda">Texto a buscar:</label><br>
+                <input type="text" name="busqueda" id="busqueda" placeholder="Palabra o frase" required>
+            </div> <br>
+
+            <div class="acciones">
+                <input type="submit" value="Buscar" class="boton">
+                <input type="reset" value="Limpiar" class="boton secundario">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
