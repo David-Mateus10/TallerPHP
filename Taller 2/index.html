@@ -2,25 +2,38 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Fibonacci y Factorial</title>
+    <title>Calculadora de Fibonacci o Factorial</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <h1>Calculadora de Fibonacci o Factorial</h1>
+    <main>
+        <h1>Calculadora de Fibonacci o Factorial</h1>
 
-    <form method="post" action="operaciones.php">
-        <label for="numero">Ingrese un número entero positivo:</label><br>
-        <input type="number" name="numero" id="numero" min="0" required>
+        <form method="post" action="operaciones.php">
 
-        <br><br>
+            <div class="form-group">
+                <label for="numero">Ingrese un número entero positivo:</label><br>
+                <input type="number" name="numero" id="numero" min="0" required>
+            </div>
 
-        <label>Seleccione una operación:</label><br>
-        <input type="radio" name="operacion" value="fibonacci" required> Sucesión de Fibonacci<br>
-        <input type="radio" name="operacion" value="factorial"> Factorial
+            <div class="form-group">
+                <p>Seleccione una operación:</p>
+                <div class="opcion">
+                    <input type="radio" name="operacion" id="fibonacci" value="fibonacci" required>
+                    <label for="fibonacci">Sucesión de Fibonacci</label>
+                </div>
+                <div class="opcion">
+                    <input type="radio" name="operacion" id="factorial" value="factorial">
+                    <label for="factorial">Factorial</label>
+                </div>
+            </div>
 
-        <br><br>
+            <div class="form-buttons">
+                <input type="submit" value="Calcular">
+                <input type="reset" value="Limpiar">
+            </div>
 
-        <input type="submit" value="Calcular">
-    </form>
+        </form>
+    </main>
 </body>
 </html>
