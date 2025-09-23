@@ -43,9 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p>No se encontraron coincidencias.</p>
         <?php } ?>
 
-        <div class="acciones"><br>
-            <a href="index.html" class="boton secundario">⬅ Volver a buscar</a>
-            <a href="../" class="boton">⬅ Volver al menú de talleres</a>
+        <div class="links">
+            <a href="index.html">⬅ Volver al menú del Taller 2</a><br>
+            <a href="../">⬅ Volver a la lista de talleres</a>
         </div>
     </div>
 </body>

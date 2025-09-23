@@ -39,17 +39,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <h1>Resultados</h1>
 
-        <?php if (!empty($conjuntoA) || !empty($conjuntoB)) : ?>
+        <?php if (!empty($conjuntoA) || !empty($conjuntoB)): ?>
             <div class="resultado">
                 <p><strong>Conjunto A:</strong> <?= !empty($conjuntoA) ? implode(', ', $conjuntoA) : "∅" ?></p>
                 <p><strong>Conjunto B:</strong> <?= !empty($conjuntoB) ? implode(', ', $conjuntoB) : "∅" ?></p>
 
                 <p><strong>Unión (A ∪ B):</strong> <?= !empty($union) ? implode(', ', $union) : "∅" ?></p>
-                <p><strong>Intersección (A ∩ B):</strong> <?= !empty($interseccion) ? implode(', ', $interseccion) : "∅" ?></p>
-                <p><strong>Diferencia (A - B):</strong> <?= !empty($diferenciaAB) ? implode(', ', $diferenciaAB) : "∅" ?></p>
-                <p><strong>Diferencia (B - A):</strong> <?= !empty($diferenciaBA) ? implode(', ', $diferenciaBA) : "∅" ?></p>
+                <p><strong>Intersección (A ∩ B):</strong> <?= !empty($interseccion) ? implode(', ', $interseccion) : "∅" ?>
+                </p>
+                <p><strong>Diferencia (A - B):</strong> <?= !empty($diferenciaAB) ? implode(', ', $diferenciaAB) : "∅" ?>
+                </p>
+                <p><strong>Diferencia (B - A):</strong> <?= !empty($diferenciaBA) ? implode(', ', $diferenciaBA) : "∅" ?>
+                </p>
             </div>
-        <?php else : ?>
+        <?php else: ?>
             <p class="error"> No se ingresaron datos válidos.</p>
         <?php endif; ?>
     </div>

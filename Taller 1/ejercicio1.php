@@ -35,10 +35,10 @@
         ?>
     </div>
 
-    <br>
-    <a href="index.html">⬅ Volver a pares e impares</a>
-    <br>
-    <a href="../">⬅ Volver a la lista de talleres</a>
+    <div class="links">
+        <a href="index.html">⬅ Volver al menú del Taller 2</a><br>
+        <a href="../">⬅ Volver a la lista de talleres</a>
+    </div>
 </body>
 
 </html>

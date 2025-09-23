@@ -27,10 +27,8 @@
                 if (count($validos) > 0) {
                     sort($validos);
 
-                    // Promedio
                     $promedio = array_sum($validos) / count($validos);
 
-                    // Mediana
                     $count = count($validos);
                     if ($count % 2 == 0) {
                         $media = ($validos[$count/2 - 1] + $validos[$count/2]) / 2;
@@ -38,7 +36,7 @@
                         $media = $validos[floor($count/2)];
                     }
 
-                    // Moda
+
                     $stringNums = array_map('strval', $validos);
                     $frecuencias = array_count_values($stringNums);
                     $maxFrecuencia = max($frecuencias);
