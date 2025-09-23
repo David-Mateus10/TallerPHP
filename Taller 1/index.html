@@ -3,20 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taller 1</title>
+    <title>Números pares e impares</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <h1>Ejercicio 1 - Pares e Impares</h1>
+    <div class="contenedor">
+        <header>
+            <h1>Ejercicio 1 - Pares e Impares</h1>
+        </header>
 
-    <form method="post" action="ejercicio1.php">
-        <label>Ingresa números separados por coma:</label><br><br>
-        <input type="text" name="numeros" placeholder="Ej: 20, 10, 2, 11, 3" required>
-        <br><br>
-        <input type="submit" value="Procesar">
-    </form>
+        <main>
+            <div class="formulario">
+                <form method="post" action="ejercicio1.php">
+                    <label for="numeros">Ingresa números separados por coma:</label><br><br>
+                    <input type="text" id="numeros" name="numeros" placeholder="Ej: 20, 10, 2, 11, 3" required>
+                    <br><br>
+                    <input type="submit" value="Procesar">
+                </form>
+            </div>
+        </main>
 
-    <br>
-    <a href="../">⬅ Volver a la lista de talleres</a>
+        <footer>
+            <br>
+            <a href="../">⬅ Volver a la lista de talleres</a>
+        </footer>
+    </div>
 </body>
 </html>

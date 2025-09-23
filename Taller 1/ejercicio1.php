@@ -2,11 +2,11 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Resultado Ejercicio 1</title>
+    <title>Resultado números pares e impares</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <h1>Resultado - Ejercicio 1</h1>
+    <h1>Resultado de los números pares e impares</h1>
 
     <div class="resultado">
     <?php
