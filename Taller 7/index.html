@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Construcción de Árbol Binario</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <main>
+        <h2>Reconstrucción de Árbol Binario</h2>
+        <form action="arbol.php" method="POST">
+            <fieldset>
+                <legend>Ingresa los recorridos</legend>
+
+                <label for="preorden">Preorden:</label>
+                <input type="text" id="preorden" name="preorden" placeholder="Ej: A B D E C"><br><br>
+
+                <label for="inorden">Inorden:</label>
+                <input type="text" id="inorden" name="inorden" placeholder="Ej: D B E A C" required><br><br>
+
+                <label for="postorden">Postorden:</label>
+                <input type="text" id="postorden" name="postorden" placeholder="Ej: D E B C A"><br><br>
+            </fieldset>
+            <br>
+            <button type="submit">Construir Árbol</button>
+        </form>
+    </main>
+</body>
+</html>
