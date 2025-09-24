@@ -45,3 +45,22 @@ button {
 button:hover {
     background: #004080;
 }
+
+ul {
+    list-style-type: none;
+    position: relative;
+    padding-left: 30px;
+}
+
+ul ul {
+    margin-left: 20px;
+}
+
+li {
+    margin: 5px;
+    padding: 5px 10px;
+    background: #eaf3ff;
+    border: 1px solid #0066cc;
+    border-radius: 8px;
+    display: inline-block;
+}
