@@ -2,28 +2,42 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Construcción de Árbol Binario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconstruir Árbol Binario</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <main>
-        <h2>Reconstrucción de Árbol Binario</h2>
-        <form action="arbol.php" method="POST">
-            <fieldset>
-                <legend>Ingresa los recorridos</legend>
+    <div class="container">
+        <h1>Reconstrucción de Árbol Binario</h1>
 
+        <form method="post" action="arbol.php">
+            <div class="form-group">
                 <label for="preorden">Preorden:</label>
-                <input type="text" id="preorden" name="preorden" placeholder="Ej: A B D E C"><br><br>
+                <input type="text" id="preorden" name="preorden"
+                       placeholder="Ej: A B D E C" />
+            </div>
 
-                <label for="inorden">Inorden:</label>
-                <input type="text" id="inorden" name="inorden" placeholder="Ej: D B E A C" required><br><br>
+            <div class="form-group">
+                <label for="inorden">Inorden (obligatorio):</label>
+                <input type="text" id="inorden" name="inorden"
+                       placeholder="Ej: D B E A C" required />
+            </div>
 
+            <div class="form-group">
                 <label for="postorden">Postorden:</label>
-                <input type="text" id="postorden" name="postorden" placeholder="Ej: D E B C A"><br><br>
-            </fieldset>
-            <br>
-            <button type="submit">Construir Árbol</button>
+                <input type="text" id="postorden" name="postorden"
+                       placeholder="Ej: D E B C A" />
+            </div>
+
+            <div class="acciones">
+                <button type="submit" class="boton">Reconstruir Árbol</button>
+                <button type="reset" class="boton secundario">Limpiar</button>
+            </div>
         </form>
-    </main>
+
+        <footer class="acciones">
+            <a href="../">← Volver al menú</a>
+        </footer>
+    </div>
 </body>
 </html>
