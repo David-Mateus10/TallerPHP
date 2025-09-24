@@ -36,3 +36,31 @@ function buildTreePostIn($post, $in) {
         "der" => buildTreePostIn($rightPost, $rightIn)
     ];
 }
+
+function printTree($node) {
+    if (!$node) return;
+    echo "<ul>";
+    echo "<li>" . $node["valor"];
+    if ($node["izq"] || $node["der"]) {
+        printTree($node["izq"]);
+        printTree($node["der"]);
+    }
+    echo "</li>";
+    echo "</ul>";
+}
+$preorden = !empty($_POST['preorden']) ? explode(" ", trim($_POST['preorden'])) : [];
+$inorden = !empty($_POST['inorden']) ? explode(" ", trim($_POST['inorden'])) : [];
+$postorden = !empty($_POST['postorden']) ? explode(" ", trim($_POST['postorden'])) : [];
+
+echo "<h2>Árbol Reconstruido</h2>";
+
+if (!empty($preorden) && !empty($inorden)) {
+    $tree = buildTreePreIn($preorden, $inorden);
+    printTree($tree);
+} elseif (!empty($postorden) && !empty($inorden)) {
+    $tree = buildTreePostIn($postorden, $inorden);
+    printTree($tree);
+} else {
+    echo "⚠️ Debes ingresar <b>Inorden</b> y al menos uno de los otros recorridos (Preorden o Postorden).";
+}
+?>
