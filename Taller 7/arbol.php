@@ -48,6 +48,7 @@ function printTree($node) {
     echo "</li>";
     echo "</ul>";
 }
+
 $preorden = !empty($_POST['preorden']) ? explode(" ", trim($_POST['preorden'])) : [];
 $inorden = !empty($_POST['inorden']) ? explode(" ", trim($_POST['inorden'])) : [];
 $postorden = !empty($_POST['postorden']) ? explode(" ", trim($_POST['postorden'])) : [];
