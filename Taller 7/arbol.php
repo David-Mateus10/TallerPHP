@@ -1,85 +1,92 @@
 <?php
-function buildTreePreIn($pre, $in) {
-    if (empty($pre) || empty($in)) return null;
+function buildTree(array $order, array $in, bool $isPre = true): ?array {
+    if (!$order || !$in) return null;
 
-    $rootVal = array_shift($pre);
-    $rootIndex = array_search($rootVal, $in);
-
-    $leftIn = array_slice($in, 0, $rootIndex);
-    $rightIn = array_slice($in, $rootIndex + 1);
-
-    $leftPre = array_slice($pre, 0, count($leftIn));
-    $rightPre = array_slice($pre, count($leftIn));
-
-    return [
-        "valor" => $rootVal,
-        "izq" => buildTreePreIn($leftPre, $leftIn),
-        "der" => buildTreePreIn($rightPre, $rightIn)
-    ];
-}
-
-function buildTreePostIn($post, $in) {
-    if (empty($post) || empty($in)) return null;
-
-    $rootVal = array_pop($post);
-    $rootIndex = array_search($rootVal, $in);
-
-    $leftIn = array_slice($in, 0, $rootIndex);
-    $rightIn = array_slice($in, $rootIndex + 1);
-
-    $leftPost = array_slice($post, 0, count($leftIn));
-    $rightPost = array_slice($post, count($leftIn));
-
-    return [
-        "valor" => $rootVal,
-        "izq" => buildTreePostIn($leftPost, $leftIn),
-        "der" => buildTreePostIn($rightPost, $rightIn)
-    ];
-}
-
-function printTree($node) {
-    if (!$node) return;
-    echo "<ul>";
-    echo "<li>" . $node["valor"];
-    if ($node["izq"] || $node["der"]) {
-        printTree($node["izq"]);
-        printTree($node["der"]);
+    $rootVal   = $isPre ? array_shift($order) : array_pop($order);
+    $rootIndex = array_search($rootVal, $in, true);
+    if ($rootIndex === false) {
+        throw new RuntimeException("El valor '$rootVal' no se encuentra en el inorden.");
     }
-    echo "</li>";
-    echo "</ul>";
+
+    $leftIn   = array_slice($in, 0, $rootIndex);
+    $rightIn  = array_slice($in, $rootIndex + 1);
+
+    $leftOrder  = array_slice($order, 0, count($leftIn));
+    $rightOrder = array_slice($order, count($leftIn));
+
+    return [
+        'valor' => $rootVal,
+        'izq'   => buildTree($leftOrder,  $leftIn,  $isPre),
+        'der'   => buildTree($rightOrder, $rightIn, $isPre)
+    ];
 }
 
-$preorden = !empty($_POST['preorden']) ? explode(" ", trim($_POST['preorden'])) : [];
-$inorden = !empty($_POST['inorden']) ? explode(" ", trim($_POST['inorden'])) : [];
-$postorden = !empty($_POST['postorden']) ? explode(" ", trim($_POST['postorden'])) : [];
-
-echo "<h2>Árbol Reconstruido</h2>";
-
-if (!empty($preorden) && !empty($inorden)) {
-    $tree = buildTreePreIn($preorden, $inorden);
-    printTree($tree);
-} elseif (!empty($postorden) && !empty($inorden)) {
-    $tree = buildTreePostIn($postorden, $inorden);
-    printTree($tree);
-} else {
-    echo "⚠️ Debes ingresar <b>Inorden</b> y al menos uno de los otros recorridos (Preorden o Postorden).";
+function renderTree(?array $node): string {
+    if (!$node) return '';
+    $html  = "<ul role=\"tree\">";
+    $html .= "<li role=\"treeitem\">" . htmlspecialchars($node['valor']) . "</li>";
+    if ($node['izq'] || $node['der']) {
+        $html .= renderTree($node['izq']);
+        $html .= renderTree($node['der']);
+    }
+    $html .= "</ul>";
+    return $html;
 }
+
+function validateConsistency(array $mainOrder, array $in): bool {
+    sort($mainOrder);
+    sort($in);
+    return $mainOrder === $in;
+}
+
+function sanitizeInput(string $input): array {
+    return array_values(array_filter(preg_split('/\s+/', trim($input)), 'strlen'));
+}
+
+$preorden  = !empty($_POST['preorden'])  ? sanitizeInput($_POST['preorden'])  : [];
+$inorden   = !empty($_POST['inorden'])   ? sanitizeInput($_POST['inorden'])   : [];
+$postorden = !empty($_POST['postorden']) ? sanitizeInput($_POST['postorden']) : [];
+
+ob_start();
+
+try {
+    if ($preorden && $inorden) {
+        if (!validateConsistency($preorden, $inorden)) {
+            echo "⚠️ Los valores de Preorden e Inorden no coinciden exactamente.";
+        } else {
+            $tree = buildTree($preorden, $inorden, true);
+            echo "<h2>Árbol reconstruido (Preorden + Inorden)</h2>";
+            echo renderTree($tree);
+        }
+    } elseif ($postorden && $inorden) {
+        if (!validateConsistency($postorden, $inorden)) {
+            echo "⚠️ Los valores de Postorden e Inorden no coinciden exactamente.";
+        } else {
+            $tree = buildTree($postorden, $inorden, false);
+            echo "<h2>Árbol reconstruido (Postorden + Inorden)</h2>";
+            echo renderTree($tree);
+        }
+    } else {
+        echo "⚠️ Debes ingresar <b>Inorden</b> y al menos uno de los otros recorridos (Preorden o Postorden).";
+    }
+} catch (RuntimeException $e) {
+    echo "❌ Error al construir el árbol: " . htmlspecialchars($e->getMessage());
+}
+
+$resultado = ob_get_clean();
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <title>Resultado</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
-
 <body>
     <div class="container">
         <h1>Resultado</h1>
         <div class="resultado">
-            <?= $mensaje ?>
+            <?= $resultado ?>
         </div>
         <div class="links">
             <a href="index.html">⬅ Volver al menú del Taller 2</a><br>
@@ -87,5 +94,4 @@ if (!empty($preorden) && !empty($inorden)) {
         </div>
     </div>
 </body>
-
 </html>
