@@ -8,29 +8,34 @@
 </head>
 <body>
     <div class="container">
-        <h1>Buscador de Texto</h1>
+        <header>
+            <h1>Buscador de Texto</h1>
+        </header>
 
-        <form method="post" action="operaciones.php" class="formulario">
-            <div class="campo">
-                <label for="texto">Ingrese un texto:</label><br>
-                <textarea name="texto" id="texto" rows="6" placeholder="Escriba aquí su párrafo..." required></textarea>
+        <main>
+            <form method="post" action="operaciones.php" class="formulario">
+                <div class="campo">
+                    <label for="texto">Ingrese un texto:</label><br>
+                    <textarea name="texto" id="texto" rows="6" placeholder="Escriba aquí su párrafo..." required></textarea>
+                </div>
+
+                <div class="campo">
+                    <label for="busqueda">Texto a buscar:</label><br>
+                    <input type="text" name="busqueda" id="busqueda" placeholder="Palabra o frase" required>
+                </div>
+
+                <div class="acciones">
+                    <input type="submit" value="Buscar" class="boton">
+                    <input type="reset" value="Limpiar" class="boton secundario">
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <div class="links">
+                <a href="../index.html">← Volver a la lista de talleres</a>
             </div>
-
-            <div class="campo">
-                <label for="busqueda">Texto a buscar:</label><br>
-                <input type="text" name="busqueda" id="busqueda" placeholder="Palabra o frase" required>
-            </div> <br>
-
-            <div class="acciones">
-                <input type="submit" value="Buscar" class="boton">
-                <input type="reset" value="Limpiar" class="boton secundario">
-            </div>
-        </form>
+        </footer>
     </div>
-    <footer>
-        <div class="links">
-            <a href="../index.html">← Volver a la lista de talleres</a>
-        </div>
-    </footer>
 </body>
 </html>

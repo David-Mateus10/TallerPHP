@@ -4,31 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operaciones estadisticas</title>
+    <title>Operaciones estadísticas</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Ejercicio 3 - Promedio, Media y Moda</h1>
+        <header>
+            <h1>Ejercicio 3 - Promedio, Media y Moda</h1>
+        </header>
 
-        <div class="form-box">
-            <form method="post" action="operaciones.php">
-                <div class="form-group">
-                    <label for="numeros">Ingresa números separados por coma:</label><br><br>
-                    <input type="text" id="numeros" name="numeros" placeholder="Ej: 2, 5, 7, 7, 10" required>
-                </div>
+        <main>
+            <div class="form-box">
+                <form method="post" action="operaciones.php">
+                    <div class="form-group">
+                        <label for="numeros">Ingresa números separados por coma:</label><br><br>
+                        <input type="text" id="numeros" name="numeros" placeholder="Ej: 2, 5, 7, 7, 10" required>
+                    </div>
 
-                <div class="form-actions">
-                    <input type="submit" value="Calcular">
-                </div>
-            </form>
-        </div>
+                    <div class="form-actions">
+                        <input type="submit" value="Calcular">
+                    </div>
+                </form>
+            </div>
+        </main>
 
         <footer>
-            <br>
-            <a href="../index.html">← Volver a la lista de talleres</a>
+            <div class="links">
+                <a href="../index.html">← Volver a la lista de talleres</a>
+            </div>
         </footer>
+    </div>
 </body>
 
 </html>
