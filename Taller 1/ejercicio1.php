@@ -3,41 +3,44 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Resultado números pares e impares</title>
-    <link rel="stylesheet" href="estilos.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado - Pares e Impares</title>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
-    <h1>Resultado de los números pares e impares</h1>
+    <div class="container">
+        <h1>Resultado de los números pares e impares</h1>
 
-    <div class="resultado">
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        <div class="resultado">
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-            $entrada = $_POST["numeros"];
-            $numeros = explode(",", $entrada);
+                $entrada = $_POST["numeros"];
+                $numeros = explode(",", $entrada);
 
-            foreach ($numeros as $num) {
-                $num = trim($num);
-                if (is_numeric($num) && intval($num) == $num) {
-                    if ($num % 2 == 0) {
-                        echo "$num es número par<br>";
+                foreach ($numeros as $num) {
+                    $num = trim($num);
+                    if (is_numeric($num) && intval($num) == $num) {
+                        if ($num % 2 == 0) {
+                            echo "<p class='par'>$num es número par</p>";
+                        } else {
+                            echo "<p class='impar'>$num es número impar</p>";
+                        }
                     } else {
-                        echo "$num es número impar<br>";
+                        echo "<p class='error'>$num no es un número entero</p>";
                     }
-                } else {
-                    echo "$num no es un número entero<br>";
                 }
+            } else {
+                echo "<p class='error'>No se recibieron datos.</p>";
             }
-        } else {
-            echo "No se recibieron datos.";
-        }
-        ?>
-    </div>
+            ?>
+        </div>
 
-    <div class="links">
-        <a href="index.html">⬅ Volver al menú del Taller 2</a><br>
-        <a href="../">⬅ Volver a la lista de talleres</a>
+        <footer class="acciones">
+            <a href="index.html">← Volver al menú del Taller 2</a>
+            <a href="../index.html">← Volver a la lista de talleres</a>
+        </footer>
     </div>
 </body>
 

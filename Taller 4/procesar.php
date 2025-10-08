@@ -3,7 +3,7 @@ function parseConjunto($input)
 {
     $numeros = explode(',', $input);
     $numeros = array_map('trim', $numeros);
-    $numeros = array_filter($numeros, 'is_numeric'); // solo números válidos
+    $numeros = array_filter($numeros, 'is_numeric'); 
     $numeros = array_map('intval', $numeros);
     return array_unique($numeros);
 }

@@ -5,32 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Números pares e impares</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
-    <div class="contenedor">
-        <header>
-            <h1>Ejercicio 1 - Pares e Impares</h1>
-        </header>
+    <div class="container">
+        <h1>Ejercicio 1 - Pares e Impares</h1>
 
-        <main>
-            <section class="formulario">
-                <form method="post" action="ejercicio1.php">
-                    <label for="numeros">Ingresa números separados por coma:</label><br><br>
-                    <input type="text" id="numeros" name="numeros" placeholder="Ej: 20, 10, 2, 11, 3" required>
-                    <br><br>
-                    <input type="submit" value="Procesar">
-                </form>
-            </section>
-        </main>
-
-        <footer>
-            <div class="links">
-                <a href="../index.html">← Volver a la lista de talleres</a>
+        <form method="post" action="ejercicio1.php" class="formulario">
+            <div class="form-group">
+                <label for="numeros">Ingresa números separados por coma:</label><br>
+                <input type="text" id="numeros" name="numeros" placeholder="Ej: 20, 10, 2, 11, 3" required>
             </div>
+
+            <div class="acciones">
+                <input type="submit" value="Procesar" class="boton">
+                <input type="reset" value="Limpiar" class="boton secundario">
+            </div>
+        </form>
+
+        <footer class="acciones">
+            <a href="../index.html">← Volver a la lista de talleres</a>
         </footer>
     </div>
 </body>
 
 </html>
+

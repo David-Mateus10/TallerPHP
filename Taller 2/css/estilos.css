@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(-45deg, #0073e6, #00b3ff, #4facfe, #00f2fe, #00c3ff);
+    background-size: 400% 400%;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    animation: fondoAnimado 12s ease infinite;
+}
+
+h1, h2 {
+    color: #0059b3;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: aparecerTitulo 1s ease-out forwards;
+}
+
+form {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 20px;
+    animation: aparecerForm 1s ease-out 0.3s forwards;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 12px;
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    animation: entradaInput 1s ease-out 0.6s forwards;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    animation: focoInput 0.8s ease-out forwards;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    padding: 12px;
+    width: 48%;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    color: white;
+    animation: entradaBoton 1.2s ease-out 0.8s forwards;
+}
+
+input[type="submit"] {
+    background-color: #ff0000;
+}
+
+input[type="reset"] {
+    background-color: #0073e6;
+}
+
+input[type="submit"]:hover {
+    animation: brilloRojo 1s infinite alternate;
+}
+
+input[type="reset"]:hover {
+    animation: brilloAzul 1s infinite alternate;
+}
+
+.acciones {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+a {
+    display: inline-block;
+    margin-top: 25px;
+    text-decoration: none;
+    color: #0059b3;
+    font-weight: bold;
+    animation: aparecerLink 1.3s ease-out 1s forwards;
+}
+
+a:hover {
+    animation: linkHover 0.5s forwards;
+}
+
+/* ===================== */
+/* BLOQUE ÚNICO DE ANIMACIONES */
+/* ===================== */
+
+@keyframes fondoAnimado {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes aparecerTitulo {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes aparecerForm {
+    0% { opacity: 0; transform: scale(0.9) translateY(40px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes entradaInput {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes focoInput {
+    0% { box-shadow: 0 0 0 rgba(0, 115, 230, 0); }
+    100% { box-shadow: 0 0 15px rgba(0, 115, 230, 0.5); }
+}
+
+@keyframes entradaBoton {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes brilloRojo {
+    0% { box-shadow: 0 0 8px rgba(255, 0, 0, 0.5); }
+    100% { box-shadow: 0 0 20px rgba(255, 0, 0, 1); }
+}
+
+@keyframes brilloAzul {
+    0% { box-shadow: 0 0 8px rgba(0, 115, 230, 0.5); }
+    100% { box-shadow: 0 0 20px rgba(0, 115, 230, 1); }
+}
+
+@keyframes aparecerLink {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes linkHover {
+    0% { color: #0059b3; transform: translateY(0); }
+    100% { color: #003d80; transform: translateY(-4px); }
+}
